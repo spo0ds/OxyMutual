@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@700&family=Kanit:wght@500&family=Mochiy+Pop+One&family=Poppins:wght@500&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Kanit', sans-serif !important;
 }
 
 a {
@@ -23,4 +24,415 @@ a {
     color: white;
     background: black;
   }
+}
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+[data-theme="dark"] .site-layout .site-layout-background {
+  background: #141414;
+}
+h1 {
+  color: white !important;
+
+  font-size: 35px;
+  font-weight: 800;
+}
+h2{
+  color: #141414;
+  font-size: 25;
+}
+
+.flex-container {
+  width: 100vw;
+
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  width: 500px;
+
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+
+  margin-top: 5px;
+  padding-top: 20px;
+
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #1f1f1f;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+}
+
+.subtitle {
+  font-size: 18px;
+
+  color: rgba(177, 177, 177, 0.3);
+}
+
+input {
+  border: none;
+  border-bottom: solid rgb(143, 143, 143) 1px;
+  margin-bottom: 30px;
+  background: none;
+  color: rgba(255, 255, 255, 0.555);
+  height: 35px;
+  width: 300px;
+}
+
+.submit-btn {
+  cursor: pointer;
+
+  border: none;
+  border-radius: 8px;
+  margin-top:2rem;
+  box-shadow: 2px 2px 7px #29e458;
+  background: #09a83e;
+  color: rgba(255, 255, 255, 0.8);
+  width: 80px;
+  transition: all 1s;
+}
+
+.submit-btn:hover {
+  color: rgb(255, 255, 255);
+
+  box-shadow: none;
+}
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+
+section{
+  padding: 0px 0px;
+}
+section .title{
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  font-family: sans-serif;
+  text-decoration-line:underline;
+}
+.services{
+  color: rgb(175, 136, 28);
+ background: whitesmoke;
+}
+.services .serv-content .card{
+align-items: center;
+ width: 160px;
+ height: 160px;
+ background: rgb(247, 246, 244);
+ text-align: center;
+ border-radius:50%;
+ background-blend-mode: multiply;
+ background-size: 160px 160px;
+ cursor: pointer;
+ margin: auto;
+ 
+}
+.services .serv-content .card:hover{
+ background:rgb(26, 199, 147);
+ transform: scale(1.3);
+  transition: .3s;
+}
+.services .serv-content .card:hover.box{
+ transform: scale(1.5);
+}
+.services .serv-content .card i{
+ font-size: 50px;
+ color: rgb(226, 194, 201);
+ margin: 25px 0px;
+}
+.services .serv-content .card:hover i{
+ color: #fff;
+ 
+}
+.services .serv-content .card text{
+ font-size: 20px;
+ color: rgb(239, 211, 217);
+ font-weight: bold;
+ margin-bottom: 25px;
+}
+h5{
+ color: #fff;
+ font-size: 23px;
+ margin-bottom: 15px;
+}
+
+/* Services */
+.about, .services, .contact{
+    font-family:'Courier New', 'Courier', 'monospace';
+
+}
+.about .about-content, .services .serv-content, .contact .contact-content{
+    display: flex;
+    align-self: center;
+    justify-content:space-between;
+}
+.about .about-content .left{
+    width: 30%;
+    height: 300px;
+    border-radius: 22px;
+    margin-top: 70px;
+    margin-bottom: 120px;
+    margin-left: 10%;
+    align-self:center;
+    justify-content: center;
+    object-fit: fill;
+    background-color: black;
+}
+
+.about .about-content .left img{
+
+    width: 30%;
+    object-fit: fill;
+    margin-right: 10px;
+    border-radius:22px;
+}
+.about .about-content .right{
+    width: 50%;
+}
+.about .about-content .right .text{
+  margin-top: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+.about .about-content .right .text span{
+    color:rgb(210, 183, 188);
+ }
+ .about .about-content .right p{
+     text-align: justify;
+     margin-right: 100px;
+
+ }
+ .about .about-content .right a{
+     display: inline-block;
+     background: rgb(103, 158, 82);
+     color: #fff;
+     font-size: 20px;
+     padding: 10px 30px;
+     margin-top: 20px;
+     border-radius: 6px;
+     border: 2px solid rgb(99, 197, 123);
+     transition: all 0.3s ease;
+     
+ }
+ .about .about-content .right a:hover{
+     color:black;
+
+     background: whitesmoke;
+ }
+ /* .............................. */
+ /* ....Cpnttact us ........... */
+.contact{
+  align-items: center;
+  background-color: white;
+}
+.contact .contact-content .column{
+  width:50%;
+}
+.contact .left{
+  align-items: center;
+  margin-left: 15%;
+  padding: 20px 20px;
+  width:50%;
+}
+.content .max_width{
+  width: 100%;
+}
+.content .max_width.title {
+  font-size: 50px;
+}
+
+.contact .contact-content .text{
+  font-size:35px;
+  font-weight: 60;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.contact .contact-content .left .icons{
+  margin: 10px 0;
+}
+.contact .contact-content .row{
+  display: flex;
+  height: 65px;
+  align-items: center;
+}
+.contact .contact-content .row .info{
+  margin-left: 30px;
+}
+.contact .contact-content .row i{
+  font-size: 25px;
+  color: pink;
+}
+.contact .contact-content .info .head{
+  font-size: 25px;
+  font-weight: bolder;
+  font-style: italic;
+}
+.contact .contact-content .info .sub-title{
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 22px;
+  color: black;
+}
+.contact .right form .fields{
+  display: flex;
+  height: 120px;
+}
+.contact .right form .field, 
+.contact .right form .fields .field{
+  height: 75px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.contact .right form .textarea{
+  height: 80px;
+  width: 100%;
+}
+.contact .right form .field input,.contact .right form .textarea textarea{
+  height: 110%;
+  width: 90%;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-family: sans-serif;
+}
+.contact .right form .textarea textarea{
+  background-color: white;
+  padding-top: 15px;
+  
+  resize: none;
+}
+.contact .right  .button{
+  height: 47px;
+  width: 190px;
+}
+.contact .right  .button button{
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgb(44, 207, 180);
+  background: blue;
+  color:#fff;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+.contact .right  .button button:hover{
+  color:black;
+  background: green;
+}
+/* footer abd social media icons */
+
+.footer p{
+  align-items: center;
+  color:black;
+  padding-top: 25px;
+  font-size: 25px;
+  
+}
+/* ..................flipping */
+
+
+.about .about-content .right1{
+  width: 30%;
+  border-radius: 22px;
+  margin-bottom: 100px;
+  margin-right: 10%;
+  align-self:center;
+  justify-content: center;
+  background-color: black;
+}
+
+.about .about-content .right1 img{
+
+  width: 30%;
+  object-fit: cover;
+  padding-top: 10px;
+  border-radius: 22px;
+}
+.about .about-content .left1{
+  width: 50%;
+}
+.about .about-content .left1 .text{
+  font-size: 25px;
+  font-weight: 600px;
+  margin-left: 50%;
+  padding-left:50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+.about .about-content .left1 .text span{
+  color:rgb(55, 155, 232);
+}
+.about .about-content .left1 p{
+   text-align: center;
+   font-size: 20px;
+   font-weight: bold;
+   padding-left: 100px;
+
+}
+.about .about-content .asdfghjk a{
+   display: inline-block;
+   background: rgb(58, 166, 209);
+   color: #fff;
+   font-size: 20px;
+   padding: 10px 30px;
+   margin-left: 50%;
+   padding-bottom: 20px;
+   
+}
+
+.about .about-content .left1 a:hover{
+   color:black;
+
+   background: whitesmoke;
+}
+.about .about-content .left1 a{
+  display: inline-block;
+  background: rgb(103, 158, 82);
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  margin-left: 56%;
+  border-radius: 6px;
+  border: 2px solid rgb(99, 197, 123);
+  transition: all 0.3s ease;
+  padding-bottom: 20px;
+  
 }
