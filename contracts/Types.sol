@@ -15,6 +15,8 @@ library Types {
         bool timePassed; // does that payment time passed?
         bool readyToPay; // is the whole time period finished?
         bool rightToClaim; // is the insured person has right to claim?
-        bool twoConsutiveFail; // does the insured person failed to give the insured amount times
+        bool threeDelayed; // does the insured person failed to give the insured amount times
+        bool claimReturnedByValidator;
+        // bool stakeReturnedByValidator;
     }
 }

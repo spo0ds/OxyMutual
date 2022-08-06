@@ -156,7 +156,7 @@ contract Validators {
     }
 
     // to execute the claim there needs to more than requiredValidations
-    function _getValidationCount(uint256 _txnId) private view returns (uint256 count) {
+    function _getValidationCount(uint256 _txnId) public view returns (uint256 count) {
         // for each validator we go check whether they approve is true or not
         // if true incerement the count
         for (uint256 i; i < validators.length; i++) {
@@ -166,7 +166,7 @@ contract Validators {
         }
     }
 
-    function _getStakeCount(uint256 _txnId) private view returns (uint256 count) {
+    function _getStakeCount(uint256 _txnId) public view returns (uint256 count) {
         // for each validator we go check whether they approve is true or not
         // if true incerement the count
         for (uint256 i; i < validators.length; i++) {

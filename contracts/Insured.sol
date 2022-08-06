@@ -81,6 +81,30 @@ contract Insured {
         }
     }
 
+    function setInsuredDetail(
+        address x,
+        uint256 _insuredAmount,
+        uint256 _startingBlockTime,
+        uint256 _interval,
+        uint256 _timeToPay,
+        uint256 _payedAmount,
+        uint256 _payedTime,
+        uint256 _insuredAmountPerSession,
+        uint256 _paymentPhase
+    ) public {
+        i_insurance.setInsuranceDetail(
+            x,
+            _insuredAmount,
+            _startingBlockTime,
+            _interval,
+            _timeToPay,
+            _payedAmount,
+            _payedTime,
+            _insuredAmountPerSession,
+            _paymentPhase
+        );
+    }
+
     // returns whether the insurance time period has finished or not
     function timeFinished() public {
         if (block.timestamp >= insuredDetail.startingBlockTime + insuredDetail.interval) {
@@ -132,8 +156,10 @@ contract Insured {
             bool,
             bool readyToPay,
             bool,
-            bool twoConsutiveFail
+            bool twoConsutiveFail,
+            bool claimReturnedByValidator
         )
+    // bool stakeReturnedByValidator
     {
         return (
             insuredDetail.insuredAmount,
@@ -147,7 +173,9 @@ contract Insured {
             insuredDetail.timePassed,
             insuredDetail.readyToPay,
             insuredDetail.rightToClaim,
-            insuredDetail.twoConsutiveFail
+            insuredDetail.threeDelayed,
+            insuredDetail.claimReturnedByValidator
+            // insuredDetail.stakeReturnedByValidator
         );
     }
 

@@ -4,17 +4,25 @@ pragma solidity 0.8.15;
 
 import "@chainlink/contracts/src/v0.8/KeeperCompatible.sol";
 import "./Types.sol";
+import "./Validators.sol";
 
 error Insurance__PhaseNumberNotCorrect();
 error Insurance__UpKeepNotNeeded();
 error Insurance__NotOwner();
 error Insurance__AdminWithdrawFailed();
 error Insurance__NotEnoughBalance();
+error Insurance__NotValidateForStake();
+error Insurance__DepositedAmountNotEqualToWithdrawnAmount();
 
 contract Insurance is KeeperCompatibleInterface {
     address public s_insuredAddress;
     uint256 private s_contractBalance = 0;
     address private immutable i_owner;
+    Validators private immutable i_validators;
+    uint256 constant REQUIREDVALIDATORS = 3;
+    uint256 private txnId = 0;
+    uint256 private withdrawBalance = 0;
+    bool private staked = false;
 
     event SuccessfulClaim(address indexed insuredAddress, uint256 indexed amount);
 
@@ -23,8 +31,9 @@ contract Insurance is KeeperCompatibleInterface {
     // for tracking the insured details
     mapping(address => Types.Details) private trackingDetail;
 
-    constructor(address _owner) {
+    constructor(address _owner, address _validatorsContractAddress) {
         i_owner = _owner;
+        i_validators = Validators(_validatorsContractAddress);
     }
 
     modifier onlyOwner() {
@@ -34,14 +43,38 @@ contract Insurance is KeeperCompatibleInterface {
         _;
     }
 
+    // sets the stake of the Insurance owner to true
+    // only validators are allowed to do it
+    function setStake(uint256 _txnId) public {
+        i_validators.approveStake(_txnId);
+        if (i_validators._getStakeCount(_txnId) >= REQUIREDVALIDATORS) {
+            staked = true;
+            txnId += 1;
+        }
+    }
+
+    // sets the claim of the client to true
+    // only validators are allowed to do it
+    function setClaim(address x, uint256 _txnId) public {
+        i_validators.approveClaim(_txnId);
+        if (i_validators._getValidationCount(_txnId) >= REQUIREDVALIDATORS) {
+            trackingDetail[x].claimReturnedByValidator = true;
+            txnId += 1;
+        }
+    }
+
     // ownly owner could withdraw form the balance
     // but needs to stake the property
     // staking is still needs to maintain
     function withdraw() public payable onlyOwner {
+        if (!staked) {
+            revert Insurance__NotValidateForStake();
+        }
         if (s_contractBalance <= 0) {
             revert Insurance__NotEnoughBalance();
         }
-        s_contractBalance = 0;
+        s_contractBalance = s_contractBalance - msg.value;
+        withdrawBalance += msg.value;
         (bool success, ) = i_owner.call{value: address(this).balance}("");
         if (!success) {
             revert Insurance__AdminWithdrawFailed();
@@ -50,6 +83,9 @@ contract Insurance is KeeperCompatibleInterface {
 
     // only owner could deposit the amount that he/she has withdrawn
     function deposit() public payable onlyOwner {
+        if (msg.value != withdrawBalance) {
+            revert Insurance__DepositedAmountNotEqualToWithdrawnAmount();
+        }
         s_contractBalance += msg.value;
     }
 
@@ -64,7 +100,8 @@ contract Insurance is KeeperCompatibleInterface {
     function rightToClaim(address x) public {
         if (
             trackingDetail[x].readyToPay == true &&
-            trackingDetail[x].payedAmount == trackingDetail[x].insuredAmount
+            trackingDetail[x].payedAmount == trackingDetail[x].insuredAmount &&
+            trackingDetail[x].claimReturnedByValidator
         ) {
             trackingDetail[x].rightToClaim = true;
         }
@@ -77,16 +114,14 @@ contract Insurance is KeeperCompatibleInterface {
         }
     }
 
-    // function recieveInsuredAmount() external {}
-
-    function isTwoConsutiveFail(address x) public {
+    function isThreeFail(address x) public {
         uint256 failCount = 0;
         if (trackingDetail[x].timePassed) {
             failCount += 1;
         }
 
-        if (failCount == 2) {
-            trackingDetail[x].twoConsutiveFail = true;
+        if (failCount == 3) {
+            trackingDetail[x].threeDelayed = true;
             transferFailedAmountToInsurance(x);
         }
     }
@@ -102,13 +137,9 @@ contract Insurance is KeeperCompatibleInterface {
             amount = trackingDetail[x].payedAmount;
             amount = (amount * 10) / 100;
             s_contractBalance += amount;
-            isTwoConsutiveFail(x);
+            isThreeFail(x);
         }
     }
-
-    // function vlidatorValidates(address x) external {
-    //     // called by the validator and sets the bool
-    // }
 
     // returns the condition for the contract to automatically run
     function checkUpkeep(
@@ -124,7 +155,8 @@ contract Insurance is KeeperCompatibleInterface {
         upkeepNeeded = (!(isTimeFinished(s_insuredAddress)) &&
             isTimePasses(s_insuredAddress) &&
             isRightToClaim(s_insuredAddress) &&
-            isFullPaymentDone(s_insuredAddress));
+            isFullPaymentDone(s_insuredAddress) &&
+            trackingDetail[s_insuredAddress].claimReturnedByValidator);
         return (upkeepNeeded, "0x0");
     }
 
@@ -143,6 +175,28 @@ contract Insurance is KeeperCompatibleInterface {
         trackingDetail[s_insuredAddress].insuredAmount = 0;
         trackingDetail[s_insuredAddress].readyToPay = false;
         trackingDetail[s_insuredAddress].rightToClaim = false;
+        trackingDetail[s_insuredAddress].claimReturnedByValidator = false;
+    }
+
+    function setInsuranceDetail(
+        address x,
+        uint256 _insuredAmount,
+        uint256 _startingBlockTime,
+        uint256 _interval,
+        uint256 _timeToPay,
+        uint256 _payedAmount,
+        uint256 _payedTime,
+        uint256 _insuredAmountPerSession,
+        uint256 _paymentPhase
+    ) external {
+        trackingDetail[x].insuredAmount = _insuredAmount;
+        trackingDetail[x].startingBlockTime = _startingBlockTime;
+        trackingDetail[x].interval = _interval;
+        trackingDetail[x].timeToPay = _timeToPay;
+        trackingDetail[x].payedAmount = _payedAmount;
+        trackingDetail[x].payedTime = _payedTime;
+        trackingDetail[x].insuredAmountPerSession = _insuredAmountPerSession;
+        trackingDetail[x].paymentPhase = _paymentPhase;
     }
 
     function isTimeFinished(address x) public view returns (bool) {
@@ -168,8 +222,6 @@ contract Insurance is KeeperCompatibleInterface {
     function getRemainingDetail(address x) public view returns (Types.Details memory) {
         return trackingDetail[x];
     }
-
-    function getData(address x) external {}
 
     receive() external payable {
         trackingDetail[msg.sender].payedAmount = msg.value;
