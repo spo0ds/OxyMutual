@@ -288,6 +288,6 @@ Everything will be deployed on a Hyperledger Besu (private Ethereum blockchain) 
 
 **FRONTEND SECTION**
 
-![PROCEED TO FRONTEND SECTION](https://github.com/spo0ds/OxyMutual/tree/frontend/nextjsfrontend#readme)
+[PROCEED TO FRONTEND SECTION](https://github.com/spo0ds/OxyMutual/tree/frontend/nextjsfrontend#readme)
 
 # THANK YOU!
