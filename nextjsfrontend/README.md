@@ -26,7 +26,7 @@ yarn run dev
 
 - If Insured Person pay amount after the mentioned time he/she should pay insured amount with certain fine.
 
-- After Completely verified with Transaction Client can check his detail accordingly with his transaction hashes and check right to Claim amount.
+- After completely verified Transaction, Client can check his detail accordingly with his transaction hashes and check right to Claim amount.
 
 - check the Time passed of Insured amount.
 
