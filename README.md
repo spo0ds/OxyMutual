@@ -286,4 +286,8 @@ However, you can manually verify it with:
 
 Everything will be deployed on a Hyperledger Besu (private Ethereum blockchain) following the IBFT 2.0 POA consensus algorithm with 4 validators.
 
+**FRONTEND SECTION**
+
+![PROCEED TO FRONTEND SECTION](https://github.com/spo0ds/OxyMutual/tree/frontend/nextjsfrontend#readme)
+
 # THANK YOU!
