@@ -43,7 +43,6 @@ contract Validators {
     mapping(uint256 => mapping(address => bool)) public approved;
     mapping(uint256 => mapping(address => bool)) public staked;
 
-    // event DepositAmount(address indexed sender, uint amount);
     event SubmitTransaction(uint256 indexed txn);
     event ApproveTransaction(address indexed validator, uint256 indexed txnId);
     event StakedTransaction(address indexed validator, uint256 indexed txnId);
@@ -121,7 +120,7 @@ contract Validators {
     // once the transaction is submitted and it has enough approval,
     // client will be able to get the amount
 
-    function appealForclaim(uint256 _totalInsuredAmount) external onlyValidator {
+    function appeal(uint256 _totalInsuredAmount) external onlyValidator {
         validations.push(
             Validation({
                 totalInsuredAmount: _totalInsuredAmount,
@@ -225,3 +224,5 @@ contract Validators {
         emit RevokedStaked(msg.sender, _txnId);
     }
 }
+
+//["0xdD870fA1b7C4700F2BD7f44238821C26f7392148", "0x583031D1113aD414F02576BD6afaBfb302140225", "0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB", "0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C"]

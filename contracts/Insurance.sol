@@ -20,9 +20,10 @@ contract Insurance is KeeperCompatibleInterface {
     address private immutable i_owner;
     Validators private immutable i_validators;
     uint256 constant REQUIREDVALIDATORS = 3;
-    uint256 private txnId = 0;
+    uint256 public txnId = 0;
     uint256 private withdrawBalance = 0;
     bool private staked = false;
+    uint256 public count = 0;
 
     event SuccessfulClaim(address indexed insuredAddress, uint256 indexed amount);
 
@@ -43,25 +44,41 @@ contract Insurance is KeeperCompatibleInterface {
         _;
     }
 
+    function getAppeal(uint256 insuredAmount) public {
+        i_validators.appeal(insuredAmount);
+    }
+
     // sets the stake of the Insurance owner to true
     // only validators are allowed to do it
-    function setStake(uint256 _txnId) public {
-        i_validators.approveStake(_txnId);
-        if (i_validators._getStakeCount(_txnId) >= REQUIREDVALIDATORS) {
+    function setStake() public {
+        i_validators.approveStake(txnId);
+        // if (i_validators._getStakeCount(txnId) >= REQUIREDVALIDATORS){
+        //     approved[txnId][msg.sender] = true;
+        count++;
+        if (count > 2) {
             staked = true;
             txnId += 1;
+            count = 0;
         }
+
+        // }
+    }
+
+    function getStakeCount() public view returns (uint256) {
+        return i_validators._getStakeCount(txnId);
     }
 
     // sets the claim of the client to true
     // only validators are allowed to do it
-    function setClaim(address x, uint256 _txnId) public {
-        i_validators.approveClaim(_txnId);
-        if (i_validators._getValidationCount(_txnId) >= REQUIREDVALIDATORS) {
+    function setClaim(address x) public {
+        i_validators.approveClaim(txnId);
+        if (i_validators._getValidationCount(txnId) >= REQUIREDVALIDATORS) {
             trackingDetail[x].claimReturnedByValidator = true;
             txnId += 1;
         }
     }
+
+    function recieveInsuredAmount() external {}
 
     // ownly owner could withdraw form the balance
     // but needs to stake the property
@@ -75,7 +92,7 @@ contract Insurance is KeeperCompatibleInterface {
         }
         s_contractBalance = s_contractBalance - msg.value;
         withdrawBalance += msg.value;
-        (bool success, ) = i_owner.call{value: address(this).balance}("");
+        (bool success, ) = payable(i_owner).call{value: address(this).balance}("");
         if (!success) {
             revert Insurance__AdminWithdrawFailed();
         }
@@ -228,5 +245,38 @@ contract Insurance is KeeperCompatibleInterface {
         s_insuredAddress = msg.sender;
         s_contractBalance += trackingDetail[msg.sender].payedAmount;
         emit InsuredAmount(msg.sender, msg.value);
+    }
+
+    function getOwner() public view returns (address) {
+        return i_owner;
+    }
+
+    function getInsuredDetail(address x)
+        public
+        view
+        returns (
+            uint256,
+            uint256,
+            uint256,
+            uint256,
+            uint256,
+            uint256,
+            uint256
+        )
+    {
+        return (
+            trackingDetail[x].insuredAmount,
+            trackingDetail[x].startingBlockTime,
+            trackingDetail[x].interval,
+            trackingDetail[x].timeToPay,
+            trackingDetail[x].payedAmount,
+            trackingDetail[x].payedTime,
+            trackingDetail[x].insuredAmountPerSession
+        );
+        // trackingDetail[x].timePassed;
+        // trackingDetail[x].readyToPay;
+        // trackingDetail[x].rightToClaim;
+        // trackingDetail[x].threeDelayed;
+        // trackingDetail[x].claimReturnedByValidator;
     }
 }
