@@ -4,6 +4,28 @@ OxyMutual is a blockchain-based insurance company with profound improvements suc
 
 The validators are primarily from the government sector, including the Police Department, the Government Insurance Association, lawyers, local government representatives, government banking, and others.OxyMutual invests in government national projects that prevent the outflow of "National Currency" with the integration of government.
 
+| **Table of Content**                                                       |
+| -------------------------------------------------------------------------- |
+| **Why Decentralized Insurance?**                                           |
+| - Cons of Traditional Insurance                                            |
+| - Impact Created by OxyMutual                                              |
+| **OxyMutual Architecture**                                                 |
+| **Steps To Run The OxyMutual**                                             |
+| - REQUIREMENTS                                                             |
+| - QUICKSTART                                                               |
+| - USAGE                                                                    |
+| - DEPLOY                                                                   |
+| - TESTING                                                                  |
+| **Deployment to a testnet or mainnet [RINKEBY TESTNET /ETHEREUM NETWORK]** |
+| **Deployment to a testnet or mainnet [MUMBAI TESTNET /POLYGON NETWORK]**   |
+| **Deployment to Hperledger Besu**                                          |
+| - REQUIREMENTS                                                             |
+| - QUICKSTART                                                               |
+| **Playing around in Remix**                                                |
+| **Verify on etherscan**                                                    |
+| **Draft (How did we begin it?)**                                           |
+| - Approach                                                                 |
+
 ## Why Decentralized Insurance?
 
 **Cons of Traditional Insurance**
@@ -54,23 +76,23 @@ Data is stored in a private blockchain using `HyperLegder Besu` keeping account 
 
 **REQUIREMENTS**
 
--   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+-   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-    -   You'll know you did it right if you can run git --version and you see a response like "git version x.x.x".
+-   You'll know you did it right if you can run git --version and you see a response like "git version x.x.x".
 
--   [Nodejs](https://classic.yarnpkg.com/lang/en/docs/install/)
+-   [Nodejs](https://classic.yarnpkg.com/lang/en/docs/install/)
 
-    -   You'll know you've installed nodejs right if you can run:
+-   You'll know you've installed nodejs right if you can run:
 
-        -   node --version and get an output like: vx.x.x
+-   node --version and get an output like: vx.x.x
 
--   [Yarn](https://yarnpkg.com/getting-started/install) instead of npm
+-   [Yarn](https://yarnpkg.com/getting-started/install) instead of npm
 
-    -   You'll know you've installed yarn right if you can run:
+-   You'll know you've installed yarn right if you can run:
 
-        -   yarn --version and get an output like: x.x.x
+-   yarn --version and get an output like: x.x.x
 
-        -   You might need to [install it with npm]() or corepack
+-   You might need to [install it with npm]() or corepack
 
 ### QUICKSTART
 
@@ -116,9 +138,9 @@ To run Locally on ganache-cli
 
 You'll want to set your RINKEBY_RPC_URL and PRIVATE_KEY as environment variables. You can add them to a .env file, similar to what you see in .env.example.
 
-    - PRIVATE_KEY: The private key of your account (like from [metamask](https://metamask.io/)). NOTE: FOR DEVELOPMENT, PLEASE USE A KEY THAT DOESN'T HAVE ANY REAL FUNDS ASSOCIATED WITH IT.
+-   PRIVATE_KEY: The private key of your account (like from [metamask](https://metamask.io/)). NOTE: FOR DEVELOPMENT, PLEASE USE A KEY THAT DOESN'T HAVE ANY REAL FUNDS ASSOCIATED WITH IT.
 
-    - RINKEBY_RPC_URL: This is the url of the rinkeby testnet node you're working with. You can get setup with one for free from [Alchemy](https://alchemy.com/?a=673c802981)
+-   RINKEBY_RPC_URL: This is the url of the rinkeby testnet node you're working with. You can get setup with one for free from [Alchemy](https://alchemy.com/?a=673c802981)
 
 2. Get testnet ETH
 
@@ -130,67 +152,67 @@ Head over to [faucets.chain.link](https://faucets.chain.link/) and get some tesn
 
 You'll want to set your MUMBAI_RPC_URL and PRIVATE_KEY as environment variables. You can add them to a .env file, similar to what you see in .env.example.
 
-    - PRIVATE_KEY: The private key of your account (like from [metamask](https://metamask.io/)). NOTE: FOR DEVELOPMENT, PLEASE USE A KEY THAT DOESN'T HAVE ANY REAL FUNDS ASSOCIATED WITH IT.
+-   PRIVATE_KEY: The private key of your account (like from [metamask](https://metamask.io/)). NOTE: FOR DEVELOPMENT, PLEASE USE A KEY THAT DOESN'T HAVE ANY REAL FUNDS ASSOCIATED WITH IT.
 
-    - POLYGON_RPC_URL: This is url of the rinkeby testnet node you're working with. You can get setup with one for free from [Alchemy](https://alchemy.com/?a=673c802981)
+-   POLYGON_RPC_URL: This is url of the rinkeby testnet node you're working with. You can get setup with one for free from [Alchemy](https://alchemy.com/?a=673c802981)
 
 2. Get testnet MATIC
 
 Head over to [faucet.polygon.technology](https://faucet.polygon.technology/) and get some tesnet MATIC & LINK. You should see MATIC and LINK show up in your metamask. [You can read more on setting up your wallet with LINK.](https://docs.chain.link/docs/deploy-your-first-contract/#install-and-fund-your-metamask-wallet)
 
-### 3. Deploying to Hperledger Besu
+### 3. Deployment to Hperledger Besu
 
 **REQUIREMENTS**
 
 [Java JDK](https://www.oracle.com/java/technologies/downloads/)
 
--   You'll know you've installed Java right if you can run: - java --version and get an ouput like: vx.x.x
+-   You'll know you've installed Java right if you can run: - java --version and get an ouput like: vx.x.x
 
 [Hyperledger Besu](https://github.com/hyperledger/besu/releases)
 
--   To confirm installation, run `bin/besu --help`
+-   To confirm installation, run `bin/besu --help`
 
 ### QUICKSTART
 
 To run a node to develop smart contracts with Hyperledger Besu and Truffle
 
-    -   Go to the besu file path that is inside the bin folder. - Run the below command
+-   Go to the besu file path that is inside the bin folder. - Run the below command
 
-    `./besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir`
+`./besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-allowlist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir`
 
-    -   To deploy on a Besu network, run the below command.
+-   To deploy on a Besu network, run the below command.
 
-    `yarn truffle migrate --network besu`
+`yarn truffle migrate --network besu`
 
 To create a private POA Ethereum network with Hyperledger Besu
 
-    -   Go to the besu file path that is inside the bin folder.
+-   Go to the besu file path that is inside the bin folder.
 
-    -   You can follow the [documentation](https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/#stop-the-nodes) to start running the node.
+-   You can follow the [documentation](https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/#stop-the-nodes) to start running the node.
 
-    -   To run the root node of the blockchain.
+-   To run the root node of the blockchain.
 
-    `./besu --data-path=./IBFT-Network/Node-1 --genesis-file=./IBFT-Network/genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"`
+`./besu --data-path=./IBFT-Network/Node-1 --genesis-file=./IBFT-Network/genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"`
 
-    - To run a second validator.
+-   To run a second validator.
 
-    `./besu --data-path=./IBFT-Network/Node-2 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546`
+`./besu --data-path=./IBFT-Network/Node-2 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546`
 
-    - To run a third validator.
+-   To run a third validator.
 
-    `./besu --data-path=./IBFT-Network/Node-3 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547`
+`./besu --data-path=./IBFT-Network/Node-3 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547`
 
-    - To run a fourth validator
+-   To run a fourth validator
 
-    `./besu --data-path=./IBFT-Network/Node-4 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548`
+`./besu --data-path=./IBFT-Network/Node-4 --genesis-file=./IBFT-Network/genesis.json --bootnodes=enode://6f266aca4bf476f24bcba87d9328b6ee9239772aa7cd9d1c963e46bd841d7b2adae405024b4efcc64f3fbc4e56731a603763e588ce52bb402f042de3f58b8e16@127.0.0.1:30303 --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548`
 
-    - To confirm the private network is working
+-   To confirm the private network is working
 
-    `curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545`
+`curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545`
 
-    - After you get some output as a success, you can deploy your contract on a private blockchain following the IBFT 2.0 POA consensus mechanism.
+-   After you get some output as a success, you can deploy your contract on a private blockchain following the IBFT 2.0 POA consensus mechanism.
 
-    `yarn truffle migrate --network besuIBFT`
+`yarn truffle migrate --network besuIBFT`
 
 ### 4. Playing around in Remix
 
@@ -224,43 +246,43 @@ However, you can manually verify it with:
 
 **What does the insurance contract need to do?**
 
--   First track the insured address with the details
+-   First track the insured address with the details
 
--   If the necessary conditions are fulfilled, chainlink keepers fire up
+-   If the necessary conditions are fulfilled, chainlink keepers fire up
 
-    - The insurance period has come to an end.
+-   The insurance period has come to an end.
 
-    -   Insured person has the right to claim
+-   Insured person has the right to claim
 
-    -   Full payment has been made and he/she has agreed to
+-   Full payment has been made and he/she has agreed to
 
-    -   Has no more than three delayed payments
+-   Has no more than three delayed payments
 
--   Owner of the insurance is set
+-   Owner of the insurance is set
 
-    -   Because he can withdraw the amount.
+-   Because he can withdraw the amount.
 
-        -The company wants to profit from the business as well.
+-The company wants to profit from the business as well.
 
-        -   but only by staking the property.
+-   but only by staking the property.
 
--   All insured paid amounts are added to the contract balance.
+-   All insured paid amounts are added to the contract balance.
 
--   If insurance fails to give the amount in time, a 10% fine will be charged.
+-   If insurance fails to give the amount in time, a 10% fine will be charged.
 
--   3 delay of payments leads to no longer being insured and you won't get any money back.
+-   3 delay of payments leads to no longer being insured and you won't get any money back.
 
--   only the owner can see the balance and deposit in the contract.
+-   only the owner can see the balance and deposit in the contract.
 
-What does client/insured will be able to do?
+**What does client/insured will be able to do?**
 
--   Apply for the insurance, select the payment phase, and provide all the insurance requirements.
+-   Apply for the insurance, select the payment phase, and provide all the insurance requirements.
 
--   Insured person pays the amount for the insurance.
+-   Insured person pays the amount for the insurance.
 
--   Get's the details about the insurance
+-   Get's the details about the insurance
 
--   If any incident happens, ask for a claim from the insurance company.
+-   If any incident happens, ask for a claim from the insurance company.
 
 Everything will be deployed on a Hyperledger Besu (private Ethereum blockchain) following the IBFT 2.0 POA consensus algorithm with 4 validators.
 
