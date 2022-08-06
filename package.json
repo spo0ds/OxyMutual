@@ -1,10 +1,11 @@
 {
-  "devDependencies": {
-    "prettier": "^2.7.1",
-    "truffle": "^5.5.25",
-    "@chainlink/contracts": "^0.4.2"
-  },
   "dependencies": {
-    
+    "@chainlink/contracts": "^0.4.2",
+    "@truffle/hdwallet-provider": "^2.0.13",
+    "dotenv": "^16.0.1",
+    "truffle": "^5.5.25"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
   }
 }

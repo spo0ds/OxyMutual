@@ -9,6 +9,7 @@ error Insurance__PhaseNumberNotCorrect();
 error Insurance__UpKeepNotNeeded();
 error Insurance__NotOwner();
 error Insurance__AdminWithdrawFailed();
+error Insurance__NotEnoughBalance();
 
 contract Insurance is KeeperCompatibleInterface {
     address public s_insuredAddress;
@@ -37,6 +38,9 @@ contract Insurance is KeeperCompatibleInterface {
     // but needs to stake the property
     // staking is still needs to maintain
     function withdraw() public payable onlyOwner {
+        if (s_contractBalance <= 0) {
+            revert Insurance__NotEnoughBalance();
+        }
         s_contractBalance = 0;
         (bool success, ) = i_owner.call{value: address(this).balance}("");
         if (!success) {
@@ -160,6 +164,12 @@ contract Insurance is KeeperCompatibleInterface {
     function _getContractBalance() private view onlyOwner returns (uint256) {
         return s_contractBalance;
     }
+
+    function getRemainingDetail(address x) public view returns (Types.Details memory) {
+        return trackingDetail[x];
+    }
+
+    function getData(address x) external {}
 
     receive() external payable {
         trackingDetail[msg.sender].payedAmount = msg.value;

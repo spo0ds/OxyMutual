@@ -90,7 +90,10 @@ contract Insured {
 
     // returns whether or not insured person has the right to claim
     function rightToClaim() public {
-        if (insuredDetail.readyToPay == true && insuredDetail.payedAmount == insuredDetail.insuredAmount) {
+        if (
+            insuredDetail.readyToPay == true &&
+            insuredDetail.payedAmount == insuredDetail.insuredAmount
+        ) {
             insuredDetail.rightToClaim = true;
         }
     }
