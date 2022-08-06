@@ -140,13 +140,14 @@ section .title{
 }
 .services{
   color: rgb(175, 136, 28);
- background: whitesmoke;
+ background: white(242, 244, 251);
+ 
 }
 .services .serv-content .card{
 align-items: center;
  width: 160px;
  height: 160px;
- background: rgb(247, 246, 244);
+ background:whitesmoke;
  text-align: center;
  border-radius:50%;
  background-blend-mode: multiply;
@@ -156,7 +157,7 @@ align-items: center;
  
 }
 .services .serv-content .card:hover{
- background:rgb(26, 199, 147);
+ background:rgb(120, 241, 101);
  transform: scale(1.3);
   transition: .3s;
 }
@@ -168,12 +169,9 @@ align-items: center;
  color: rgb(226, 194, 201);
  margin: 25px 0px;
 }
-.services .serv-content .card:hover i{
- color: #fff;
- 
-}
+
 .services .serv-content .card text{
- font-size: 20px;
+ font-size: 22px;
  color: rgb(239, 211, 217);
  font-weight: bold;
  margin-bottom: 25px;
@@ -196,19 +194,18 @@ h5{
 }
 .about .about-content .left{
     width: 30%;
-    height: 300px;
+    height: 100%;
     border-radius: 22px;
     margin-top: 70px;
     margin-bottom: 120px;
-    margin-left: 10%;
+    margin-left: 12%;
     align-self:center;
     justify-content: center;
     object-fit: fill;
-    background-color: black;
 }
 
 .about .about-content .left img{
-
+  position: relative;
     width: 30%;
     object-fit: fill;
     margin-right: 10px;
@@ -253,7 +250,7 @@ h5{
  /* ....Cpnttact us ........... */
 .contact{
   align-items: center;
-  background-color: white;
+  background-color: whitesmoke;
 }
 .contact .contact-content .column{
   width:50%;
@@ -359,9 +356,14 @@ h5{
 
 .footer p{
   align-items: center;
-  color:black;
+  width: 100%;
+  height: 100%;
+  color:white;
   padding-top: 25px;
-  font-size: 25px;
+  padding-bottom: 25px;
+  border-radius: 22px;
+  background: rgb(0, 21, 40);
+  font-size: 22px;
   
 }
 /* ..................flipping */
@@ -374,7 +376,6 @@ h5{
   margin-right: 10%;
   align-self:center;
   justify-content: center;
-  background-color: black;
 }
 
 .about .about-content .right1 img{
@@ -397,7 +398,7 @@ h5{
   
 }
 .about .about-content .left1 .text span{
-  color:rgb(55, 155, 232);
+  color:rgb(6, 10, 14);
 }
 .about .about-content .left1 p{
    text-align: center;
@@ -406,17 +407,6 @@ h5{
    padding-left: 100px;
 
 }
-.about .about-content .asdfghjk a{
-   display: inline-block;
-   background: rgb(58, 166, 209);
-   color: #fff;
-   font-size: 20px;
-   padding: 10px 30px;
-   margin-left: 50%;
-   padding-bottom: 20px;
-   
-}
-
 .about .about-content .left1 a:hover{
    color:black;
 
@@ -425,7 +415,7 @@ h5{
 .about .about-content .left1 a{
   display: inline-block;
   background: rgb(103, 158, 82);
-  color: #fff;
+  color: whitesmoke;
   font-size: 20px;
   padding: 10px 30px;
   margin-top: 20px;
@@ -435,4 +425,99 @@ h5{
   transition: all 0.3s ease;
   padding-bottom: 20px;
   
+}
+.effect-wrap .effect{
+  position: absolute;
+  z-index: -1;
+
+}
+
+.effect-1{
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgb(45, 172, 62);
+  right: 80%;
+  bottom:10%;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin {
+  0%{ 
+      transform: rotate(0deg);
+
+}100%{
+  transform: rotate(360deg);
+
+}}
+.effect-2{
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgb(209, 70, 89);
+  left: 80%;
+  top:1%;
+  animation: spin2 10s linear infinite;
+}
+@keyframes spin2 {
+  0%{ 
+      transform: rotate(0deg);
+
+}100%{
+  transform: rotate(360deg);
+
+}}
+.row{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.justify-content-between{
+  justify-content:center;
+}
+.row .logo{
+  color:black;
+  width: 3%;
+  content: fill;
+  align-items: center;
+  border-radius: 50%;
+}
+.row .logo a{
+  color:black;
+  padding-top: 200px;
+  font-size: 35;
+}
+.row .logo Image:hover{
+  scale:1.9;
+}
+.hand-in-hand{
+  height: 70vh;
+  background-color:rgb(239, 239, 240);
+}
+.box-wrapper {
+  height: 55vh;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+justify-content: space-evenly
+}
+
+.box3 {
+  padding: 76px;
+  padding-bottom: 120px;
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.box4 {
+  
+  border-radius: 22px;
+  align-items: center;
+  position: relative;
+  flex-grow:1;
+}
+.box4 img{
+  height: 100;
+  width: 100%;
+  border-radius: 22px;
 }

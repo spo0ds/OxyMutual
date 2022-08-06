@@ -63,50 +63,16 @@ const insured = () => (
                 <div class="field name">
                     <input type="CheckUpkeep" name="CheckUpkeep" placeholder='CheckUpkeep' />
                     
-                <input type="submit" value="SUBMIT" class="submit-btn" />
                     </div>
-                <br />
-                <div class="field name">
-                    <input type="PerformanceUPkeep" name="PerformanceUPkeep" placeholder='PerformanceUPkeep' />
-                    
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                      </div>
-                <br />
-
-                <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                <br />
+        
 
                 <div class="field name">
                     <input type="isTwoConsutiv" name="isTwoConsutiv" placeholder='isTwoConsutiv' />
+                    <br />
                 <input type="submit" value="SUBMIT" class="submit-btn" />
                       </div>
-                <br />
-                <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                 <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                 <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                 <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                 <div class="field name">
-                    <input type="rightToClaim" name="rightToClaim" placeholder='rightToClaim' />
-                <input type="submit" value="SUBMIT" class="submit-btn" />
-                 </div>
-                 <br>
-                 </br>
-                
+    
+                 
         
             </div>
           </div>

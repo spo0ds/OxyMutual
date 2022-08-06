@@ -67,26 +67,6 @@ const insurance = () => (
                 <br />
                 <input type="password" name="password"/>
                 <br />
-                <span class="subtitle">Interval:</span>
-                <br />
-                <input type="text" name="password"/>
-                <br />
-                <span class="subtitle">Time To Pay:</span>
-                <br />
-                <input type="text" name="password"/>
-                <br />
-                <span class="subtitle">Paid Amount:</span>
-                <br />
-                <input type="text" name="password"/>
-                <br />
-                <span class="subtitle">Paid Time:</span>
-                <br />
-                <input type="text" name="password"/>
-                <br />
-                <span class="subtitle">Payment Phase:</span>
-                <br />
-                <input type="text" name="password"/>
-                <br />
                 <span class="subtitle">Time Passed:</span>
                 <br />
                 <input type="text" name="password"/>
@@ -96,7 +76,8 @@ const insurance = () => (
                 <input type="text" name="password"/>
                 <br />
                 <input type="submit" value="SUBMIT" class="submit-btn" />
-        
+                <br />
+                <br />
             </div>
           </div>
         </div>
