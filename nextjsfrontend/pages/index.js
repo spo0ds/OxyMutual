@@ -7,7 +7,7 @@ import val2 from '../public/logo2.png';
 import val from '../public/validator.png';
 import gov from '../public/gov.png';
 import law from '../public/lawer.png';
-import img2 from '../public/logo1.jpg';
+import img2 from '../public/logo1.png';
 import user from '../public/user.png';
 const { Header, Content, Footer } = Layout;
 
@@ -64,9 +64,9 @@ const Home = () => (
        <div style={{width:"50vw",minHeight:"500px",display:"flex",flexDirection:"column",marginTop:"3rem"}}>
         <p style={{fontSize:"45px",fontWeight:"bolder",letterSpacing:"2px",textAlign:"justify",textAlignLast:"center"}}> Get covered against smart contract failure & exchange hacks.</p>
         <div style={{margin:"0rem 5rem",display:"flex",justifyContent:"space-between"}}>
-        <Link href={"/withdraw/insured"}><Button danger style={{background:"#001528",height:'55px',width:"190px",borderWidth:"2px"}}>Insured</Button></Link>
+        <Link href={"/insured"}><Button danger style={{background:"#001528",height:'55px',width:"190px",borderWidth:"2px"}}>Insured</Button></Link>
         <Link href={"https://lib.openlaw.io/web/default/contract/60dbdfe22a0da639db1a501d10f66598a8a70bc5e8055e53556634fe41eca909"}><Button danger style={{background:"#001528",height:'55px',width:"190px",borderWidth:"2px"}}>View Aggrement</Button></Link>
-        <Link href={"/withdraw/insurance"}><Button danger style={{background:"#001528",height:'55px',width:"190px",borderWidth:"2px"}}>Insurance </Button></Link>
+        <Link href={"/insurance"}><Button danger style={{background:"#001528",height:'55px',width:"190px",borderWidth:"2px"}}>Insurance </Button></Link>
         </div>
         
        </div>
@@ -113,7 +113,8 @@ const Home = () => (
        </div>
    </section>
    <section>
-     <div className="hand-in-hand">
+    <div className="services">
+   <div className="hand-in-hand">
      <div className="box-wrapper">
         <div className=" box3">
             <div className="box3 box4">
@@ -141,12 +142,14 @@ const Home = () => (
     </div>
 
      </div>
+    </div>
+
    </section>
    {/* ---------------------------- */}
 
    
    <section className="services" id="services">
-   
+  
         <div className="max-width">
             <h2 className="title"><br></br>Our Team Members</h2>
             <div className="serv-content">
@@ -199,17 +202,18 @@ const Home = () => (
         </div>
         <br /><br /><br /><br />
     </section>
+    <section></section>
     
     </Content>
     <Footer className='footer'
       style={{
-        width:"100%",
-        marginTop:"100px",
-        margin:"0",
+        marginTop:"188px",
         alignItems:'center',
         textAlign: 'center',
       }}    >
-  <br /> <br />
+        <br />
+       <br />
+  
       <p>Oxerium ©2022 Created by Us.</p>
     </Footer>
   </Layout>

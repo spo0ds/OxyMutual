@@ -6,6 +6,8 @@ import { ConnectButton } from '@web3uikit/web3'
 import styles from '../styles/Home.module.css'
 import 'bulma/css/bulma.css'
 
+import 'antd/dist/antd.css';
+
 export default function Home() {
   const [web3, setWeb3] = useState()
   const [address, setAddress] = useState()
@@ -43,7 +45,7 @@ const insuredDetail = async () => {
       document.getElementById("timeFinished").innerHTML = "False"
   }
   const insuredDetails = async () =>{
-    document.getElementById("insuredDetails").innerHTML = "{insuredAmount: 1000,startingBlockTime: 10, interval: 5, timeToPay: false, payeAmount:200, insuredAmountPerSession: 200, paymentPhase:'2', timePassed:false, readToPay:false, rightToClaim: false}"
+    document.getElementById("insuredDetails").innerHTML = "insuredAmount: 1000,<br /> startingBlockTime: 10,<br /> interval: 5, <br />timeToPay: false,<br /> payeAmount:200,<br /> insuredAmountPerSession: 200,<br /> paymentPhase:'2',<br />timePassed:false,<br />readToPay:false,<br /> rightToClaim: false"
 }
   const connectWalletHandler = async () => {
     //check if metamask is intall 
@@ -71,19 +73,11 @@ const insuredDetail = async () => {
   }
   return (
     <div>
-      <Head>
-        <title>Decentralized Insurance</title>
-        <meta name="description" content="Decentralized Insurance" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+     
       <main className={styles.main}>
-        <nav className="navbar mt-4 mb-4">
-          <div className="container">
-            <div className="navbar-brand">
-              <h1>OXYMUTUAL</h1>
-            </div>
-            <div className="navbar-end">
+        <nav className="navbar ">
+          <div className="container12">
+            <div className="navbar-end" >
               <ConnectButton moralisAuth={false}/>
                {/* <button onClick={connectWalletHandler} className="button is-link">Connect Wallet</button> */}
             </div>
@@ -94,46 +88,46 @@ const insuredDetail = async () => {
             <div className="columns">
               <div className="column is-two-thirds">
                 <section className="mt-5">
-                  <p class="has-text-black">Initiate the Insurance from Open Law</p>
+                  <p class="has-text-black">Initiate the Insurance from Open Law:</p>
                   <input class="input is-rounded is-small" type="text" placeholder="Rounded input" id="phase"></input>
-                  <button className="button is-link is-large is-light mt-3" onClick={PhaseNumber}>PhaseNumber</button>
+                  <button className="button12 " onClick={PhaseNumber}>PhaseNumber</button>
                   <p class="has-text-black" id="PhaseNumber"></p>
                 </section>
-                 <section className="mt-5">
-                  <p class="has-text-black">Check Paid Insured Amount till the date</p>
-                  <button className="button is-link is-large is-light mt-3" onClick={amount}>PaidInsuredAmount</button>
+                 <section className="mt-7">
+                  <p class="has-text-black">Check Paid Insured Amount till the date:</p>
+                  <button className="button12 " onClick={amount}>PaidInsuredAmount</button>
                   <p class="has-text-black"id="amount"></p>
                 </section>
-                <section className="mt-5">
-                  <p class="has-text-black">Time Period For Right To Claim</p>
-                  <button className="button is-link is-large is-light mt-3" onClick={date}>Right To Claim</button>
+                <section className="mt-7">
+                  <p class="has-text-black">Time Period For Right To Claim:</p>
+                  <button className="button12" onClick={date}>Right To Claim</button>
                   <p class="has-text-black" id="date"></p>
                 </section>
                 <section className="mt-7">
-                  <button className="button is-link is-large is-light mt-3" onClick={timeFinished}>Time Finished</button>
+                  <button className="button12 " onClick={timeFinished}>Time Finished</button>
                   <p class="has-text-black" id="timeFinished"></p> 
                 </section>
                 <section className="mt-7">
-                  <button className="button is-link is-large is-primary mt-3">Fine Percent</button>
+                  <button className="button12 ">Fine Percent</button>
                 </section>
                 <section className="mt-7">
-                  <p class="has-text-black">get Insured Details</p>
-                  <button className="button is-link is-large is-primary mt-3" onClick={insuredDetails}>get Insured Details</button>
-                  <p class="has-text-black" id="insuredDetails"></p>
+                  <p class="has-text-black">Get Insured Details:</p>
+                  <button className="button12" onClick={insuredDetails}>Get Here!</button>
+                  <p id="insuredDetails"></p>
                   <p>{getInsuredD}</p>
                 </section>
               </div>
               <div className="column is-one-third">
                   <section className="mt-5">
-                    <div className="card">
-                      <div className="card-content">
-                        <div className="content">
+                    <div className="card12">
+                      <div className="card-content12">
+                        <div className="content12">
                            <h2>Payment Details</h2>
                               <div className="transaction-history">
                                 <div>Transaction 1: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
                                 <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
-                                <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
-                                <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
+                                <div>Transaction 3: 0xa962a245685890A5914C38b2D7C2346070Ef576e</div>
+                                <div>Transaction 4: 0xa962a245685890A5914C38b2D7C9867544Ef576e</div>
                               </div>
                           </div>   
                       </div>
@@ -146,8 +140,16 @@ const insuredDetail = async () => {
         
       </main>
 
-      <footer className={styles.footer}>
-        <p>&copy; 2022 OXYRIEUM</p> 
+      <footer className='footer'
+      style={{
+        marginTop:"188px",
+        alignItems:'center',
+        textAlign: 'center',
+      }}    >
+        <br />
+       <br />
+  
+      <p>Oxerium ©2022 Created by Us.</p>
       </footer>
     </div>
   )

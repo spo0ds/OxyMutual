@@ -65,20 +65,14 @@ const display = async () => {
   }
   return (
     <div>
-      <Head>
-        <title>Insurance</title>
-        <meta name="description" content="Decentralized Insurance" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    
 
       <main className={styles.main}>
-        <nav className="navbar mt-4 mb-4">
-          <div className="container">
-            <div className="navbar-brand">
-              <h1>OXYMUTUAL</h1>
-            </div>
+        <nav className="navbar">
+          <div className="container12">
             <div className="navbar-end">
               {/* <button onClick={connectWalletHandler} className="button is-link">Connect Wallet</button> */}
+             
               <ConnectButton moralisAuth={false}/>
             </div>
           </div>
@@ -95,42 +89,42 @@ const display = async () => {
                 <section className="mt-5">
                   <p class="has-text-black">Received Insured</p>
                   <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
-                  <button className="button is-link is-large is-Info mt-3">received Insured</button>
+                  <button className="button12">Received Insured</button>
                 </section>
                 <section className="mt-5">
                   <p class="has-text-black">Daily Payment With Fine</p>
                    <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
-                  <button className="button is-link is-large is-light mt-3">Transfer Fine</button>
+                  <button className="button12">Transfer Fine</button>
                 </section>
                 <section className="mt-7">
                     <p class="has-text-black">Check is Validator </p>
                     <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
-                    <button className="button is-link is-large is-light mt-3">Validator</button>
+                    <button className="button12 ">Validator</button>
                 </section>
                 <section className="mt-7">
                     <p class="has-text-black">If Stake Verified Only then that person can withdraw the Insurance balance</p>
-                  <button className="button is-link is-large is-danger mt-3">Withdraw</button>
+                  <button className="button12">Withdraw</button>
                 </section>
                 <section className="mt-7">
-                  <p class="has-text-black">get Insured Details</p>
-                  <button className="button is-link is-large is-info mt-3" onClick={getContractBalance}>get Contract Balance</button>
+                  <p class="has-text-black">Get Insured Details</p>
+                  <button className="button12" onClick={getContractBalance}>get Contract Balance</button>
                   <p class="has-text-black" id="getContractBalance"></p>
                 </section>
                 <section className="mt-7">
                     <p class="has-text-black">Insured Person Fully Paid </p>
                     <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
-                    <button className="button is-link is-large is-info mt-3" onClick={isFullyInsured}>isFullyInsured</button>
+                    <button className="button12 " onClick={isFullyInsured}>IsFullyInsured</button>
                     <p class="has-text-black" id="isFullyInsured"> </p>
                 </section>
                 <section className="mt-7">
                     <p class="has-text-black">Check Address that has right to Claim </p>
                     <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
-                    <button className="button is-link is-large is-info mt-3" onClick={isRightToClaim}>isRightToClaim</button>
+                    <button className="button12 " onClick={isRightToClaim}>IsRightToClaim</button>
                     <p class="has-text-black" id="isRightToClaim"></p>
                 </section>
                 <section className="mt-7">
                     <p class="has-text-black">Recent Insured Address </p>
-                    <button className="button is-link is-large is-info mt-3" onClick={recentAddress}>Recent Insured Address</button>
+                    <button className="button12" onClick={recentAddress}>Recent Insured Address</button>
                     <p class="has-text-black" id="address"></p>
                     <br></br>
                 </section>
@@ -138,7 +132,7 @@ const display = async () => {
                     <p class="has-text-black">Total Insured Amount from Particular Address</p>
                     <input class="input is-rounded is-small" type="text" placeholder="address X"></input>
                     {/* <p id="amount"></p> */}
-                    <button className="button is-link is-large is-info mt-3" onClick={amount}>TotalInsuredAmount</button>
+                    <button className="button12 " onClick={amount}>TotalInsuredAmount</button>
                     <p class="has-text-black" id="amount"></p>
                 </section>
                 {/* <section className="mt-7">
@@ -148,18 +142,18 @@ const display = async () => {
                     <button onClick={insuredDetails}className="button is-link is-large is-info mt-3" >who is Insured</button>
                     <p id="demo"></p>
                 </section> */}
-              </div>
+              </div> 
               <div className="column is-one-third">
                   <section className="mt-5">
-                    <div className="card">
-                      <div className="card-content">
-                        <div className="content">
-                           <h2>Recent Insurance History</h2>
+                    <div className="card12">
+                      <div className="card-content12">
+                        <div className="content12">
+                           <h2>Payment Details</h2>
                               <div className="transaction-history">
                                 <div>Transaction 1: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
                                 <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
-                                <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
-                                <div>Transaction 2: 0xa962a245685890A5914C38b2D7C7716070Ef576e</div>
+                                <div>Transaction 3: 0xa962a245685890A5914C38b2D7C2346070Ef576e</div>
+                                <div>Transaction 4: 0xa962a245685890A5914C38b2D7C9867544Ef576e</div>
                               </div>
                           </div>   
                       </div>
@@ -172,8 +166,16 @@ const display = async () => {
         
       </main>
 
-      <footer className={styles.footer}>
-        <p>&copy; 2022 OXYRIEUM</p> 
+      <footer className='footer'
+      style={{
+        marginTop:"188px",
+        alignItems:'center',
+        textAlign: 'center',
+      }}    >
+        <br />
+       <br />
+  
+      <p>Oxerium ©2022 Created by Us.</p>
       </footer>
     </div>
   )
