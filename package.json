@@ -6,6 +6,7 @@
     "truffle": "^5.5.25"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "truffle-plugin-verify": "^0.5.27"
   }
 }

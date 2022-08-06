@@ -35,6 +35,8 @@ const mnemonic = process.env.MNEMONIC
 const rpc_url = process.env.RPC_URL
 const matic_url = process.env.MATIC_URL
 const privatekeyForLocalHost = process.env.PRIVATE_KEY_FOR_LOCALHOST
+const etherScanApiKey = process.env.ETHERSCAN_API_KEY
+const polygonscanApiKey = process.env.POLYGONSCAN_API_KEY
 
 module.exports = {
     /**
@@ -97,7 +99,8 @@ module.exports = {
         mumbai: {
             provider: () => new HDWalletProvider(mnemonic, matic_url),
             network_id: 80001,
-            gas: 1000000,
+            from: "0x33312a27fbd848802421fec986f32c38e4b9f8d6",
+            gasLimit: 2000000000000000,
             confirmations: 2,
             timeoutBlocks: 200,
             networkCheckTimeoutnetworkCheckTimeout: 10000,
@@ -114,6 +117,13 @@ module.exports = {
         //   network_id: 2111,   // This network is yours, in the cloud.
         //   production: true    // Treats this network as if it was a public net. (default: false)
         // }
+    },
+
+    plugins: ["truffle-plugin-verify"],
+
+    api_keys: {
+        etherscan: etherScanApiKey,
+        polygonscan: polygonscanApiKey,
     },
 
     // Set default mocha options here, use special reporters, etc.
