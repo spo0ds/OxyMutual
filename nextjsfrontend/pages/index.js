@@ -8,6 +8,8 @@ import val from '../public/validator.png';
 import gov from '../public/gov.png';
 import law from '../public/lawer.png';
 import img2 from '../public/logo1.png';
+import img3 from '../public/insurance.png';
+
 import user from '../public/user.png';
 const { Header, Content, Footer } = Layout;
 
@@ -114,6 +116,7 @@ const Home = () => (
    </section>
    <section>
     <div className="services">
+      
    <div className="hand-in-hand">
      <div className="box-wrapper">
         <div className=" box3">
@@ -146,6 +149,27 @@ const Home = () => (
 
    </section>
    {/* ---------------------------- */}
+   <section className="about" id="about">
+       <div className="max-width">
+           <h2 className="title" style={{
+           marginTop:"100px",
+           marginBottom:"0px",
+          }}>OxyMutual to Replace  Paperbased Insurance</h2>
+           <div className="about-content">
+               <div className="column left">
+               <div className='img'>
+                <Image src={img3} 
+                    alt="GFG logo imported from public directory" />
+            </div>
+               </div>
+               <div className="column right">
+                   <div className="text">
+                    <p> We are building an alternative risk sharing platform. In the future we plan to offer crypto wallet cover, as well as more standard products, like earthquake cover.</p> <span></span></div>
+                   <a href= "https://github.com/spo0ds/Journey-to-become-a-Blockchain-Engineer/blob/main/Day01/Day01.md"className="btn">Read More</a>
+               </div>
+           </div>
+       </div>
+   </section>
 
    
    <section className="services" id="services">
@@ -202,7 +226,16 @@ const Home = () => (
         </div>
         <br /><br /><br /><br />
     </section>
-    <section></section>
+    <section className="services" id="services">
+  
+     <div className="hello" style={{justifyContent:"center"}}>
+      <br />
+      <p style={{ fontSize:"20px", fontWeight:"bold",paddingLeft:"20%",color:"black"}}>
+      OxyMutual is run entirely by its members. Only validotors can decide which claims are valid or not.  <br/>All member decisions are recorded and enforced by smart contracts on the Ethereum public blockchain.
+      </p>
+      </div>
+      
+    </section>
     
     </Content>
     <Footer className='footer'
@@ -214,7 +247,7 @@ const Home = () => (
         <br />
        <br />
   
-      <p>Oxerium ©2022 Created by Us.</p>
+      <p>Oxyreium ©2022 Created by Us.</p>
     </Footer>
   </Layout>
 );
