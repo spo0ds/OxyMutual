@@ -127,18 +127,18 @@ const Home = () => (
                     
             </div>
             </div>
-            <div className="box3 box4">
-            <div>
-                <Image src={val2} 
-                    alt="GFG logo imported from public directory" />
-                    
-            </div>
-            </div>
+            
             <div className="box3 box4">
             <div style={{ border_radius:"22px"}}>
                 <Image src={val} 
                     alt="GFG logo imported from public directory" />
-                    <a style={{ color:"black"}}> validators</a>
+                 
+            </div>
+            </div>
+            <div className="box3 box4">
+            <div>
+                <Image src={val2} 
+                    alt="GFG logo imported from public directory" />
             </div>
             </div>
         </div>

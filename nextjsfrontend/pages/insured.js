@@ -149,7 +149,7 @@ const insuredDetail = async () => {
         <br />
        <br />
   
-      <p>Oxerium ©2022 Created by Us.</p>
+      <p>Oxyreium ©2022 Created by Us.</p>
       </footer>
     </div>
   )
