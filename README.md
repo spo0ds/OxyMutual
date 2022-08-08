@@ -68,6 +68,10 @@ If all necessary claims are met `ChainLink Keeper` fires up and all the required
 
 Data is stored in a private blockchain using `HyperLegder Besu` keeping account of clients' privacy.
 
+## Agreement between parties 
+
+![openlaw](agreement.png)
+
 ## OxyMutual Architecture
 
 ![Architecture of OxyMutual](Architecture.png)
