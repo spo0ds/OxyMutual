@@ -1,3 +1,5 @@
+This is the project built for MLH (Major League Hackathon). It's not complete; it's an idea that we thought could create a decentralized company and integrate government, which also builds trust in the public. If you want to discuss, work on the project, or give feedback, you're absolutely welcome. Have a great day, curious mind.
+
 # OxyMutual
 
 OxyMutual is a blockchain-based insurance company with profound improvements such as decentralized parties and improved efficiency. It follows `IBFT 2.0` POA(Proof of Authority) consensus mechanism and stores all its data in a private blockchain maintained using `Hyperledger Besu` keeping account of users' privacy with the `integration of government` entities which act as validators based on the POA mechanism, showing clear `transparancy`, complete elimination of `Brokerage Model` and math-based agreement. The agreement between the two parties, i.e., the insurance company and the insured person, is also stored in a private blockchain using `Open Law`.
