@@ -11,6 +11,7 @@ The validators are primarily from the government sector, including the Police De
 | **Why Decentralized Insurance?**                                           |
 | - Cons of Traditional Insurance                                            |
 | - Impact Created by OxyMutual                                              |
+| **Agreement between parties ** |
 | **OxyMutual Architecture**                                                 |
 | **Steps To Run The OxyMutual**                                             |
 | - REQUIREMENTS                                                             |
